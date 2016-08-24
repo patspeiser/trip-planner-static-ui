@@ -1,25 +1,35 @@
 <html>
-	<div>
-		<ul>
-			{% for hotel in Hotels %}
-				<li> {{ hotel.name }} </li>
-			{% endfor %}
-		</ul>
-	</div>
+	<head>
+		<link rel='stylesheet' href='./bootstrap/dist/css/bootstrap.css'/>
+	</head>
+	<body>
+		<div class='dropdown'>
+			<button class='btn btn-default dropdown-toggle' type='button' id='hotelDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+				Hotels
+				<span class='caret'></span>
+			</button>
+			<ul class='dropdown-menu' aria-labelledby='hotelDropdown'>
+				{% for hotel in Hotels %}
+					<li> {{ hotel.name }} </li>
+				{% endfor %}
+			</ul>
+		</div>
 
-	<div>
-		<ul>
-			{% for restaurant in Restaurants %}
-				<li> {{ restaurant.name }}</li>
-			{% endfor %}
-		</ul>
-	</div>
+		<div>
+			<ul>
+				{% for restaurant in Restaurants %}
+					<li> {{ restaurant.name }}</li>
+				{% endfor %}
+			</ul>
+		</div>
 
-	<div>
-		<ul>
-			{% for activity in Activities%}
-				<li> {{activity.name }} </li>
-			{% endfor %}
-		</ul>
-	</div>
+		<div>
+			<ul>
+				{% for activity in Activities%}
+					<li> {{activity.name }} </li>
+				{% endfor %}
+			</ul>
+		</div>
+	</body>
+		
 </html>

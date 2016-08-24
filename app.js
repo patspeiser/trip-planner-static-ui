@@ -4,6 +4,7 @@ var volleyball = require('volleyball');
 var bodyParser = require('body-parser');
 var swig = require('swig');
 var Model = require('./models');
+var path = require('path'); 
 
 var Hotel = Model.hotel;
 var Restaurant = Model.restaurant;
@@ -14,6 +15,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.engine('html', swig.renderFile);
 
+app.use(express.static(path.join(__dirname, 'node_modules'))); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(volleyball);
@@ -27,7 +29,8 @@ app.use(function(err, req, res, next) {
 app.get('/', function(req, res){
 		Promise.all([Hotel.findAll({}), Restaurant.findAll({}), Activity.findAll({})])	
 		.then( function(allData){
-			res.render('index', { Hotels: allData[0], Restaurants: allData[1], Activities: allData[2]  });
+			res.send('something'); 
+			// res.render('index', { Hotels: allData[0], Restaurants: allData[1], Activities: allData[2]  });
 		})
 })
 
