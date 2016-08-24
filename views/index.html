@@ -1,3 +1,25 @@
 <html>
-	INDEX!
+	<div>
+		<ul>
+			{% for hotel in Hotels %}
+				<li> {{ hotel.name }} </li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div>
+		<ul>
+			{% for restaurant in Restaurants %}
+				<li> {{ restaurant.name }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div>
+		<ul>
+			{% for activity in Activities%}
+				<li> {{activity.name }} </li>
+			{% endfor %}
+		</ul>
+	</div>
 </html>
