@@ -1,35 +1,30 @@
 <html>
 	<head>
-		<link rel='stylesheet' href='./bootstrap/dist/css/bootstrap.css'/>
+		<link rel='stylesheet' href='./css/bootstrap.min.css'/>
 	</head>
 	<body>
-		<div class='dropdown'>
-			<button class='btn btn-default dropdown-toggle' type='button' id='hotelDropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-				Hotels
-				<span class='caret'></span>
-			</button>
-			<ul class='dropdown-menu' aria-labelledby='hotelDropdown'>
-				{% for hotel in Hotels %}
-					<li> {{ hotel.name }} </li>
-				{% endfor %}
-			</ul>
-		</div>
+	<div class='container'>
+	<select>
+		{% for hotel in Hotels %}
+			<option>{{hotel.name}}</option>
+		{% endfor %}
+	</select>
+</div>
 
-		<div>
-			<ul>
+		<div class='container'>
+			<select>
 				{% for restaurant in Restaurants %}
-					<li> {{ restaurant.name }}</li>
+					<option> {{ restaurant.name }}</option>
 				{% endfor %}
-			</ul>
+			</select>		
 		</div>
 
-		<div>
-			<ul>
+		<div class='container'>
+			<select>
 				{% for activity in Activities%}
-					<li> {{activity.name }} </li>
+					<option> {{activity.name }} </option>
 				{% endfor %}
-			</ul>
+			</select>
 		</div>
 	</body>
-		
 </html>

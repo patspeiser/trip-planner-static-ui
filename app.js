@@ -15,7 +15,8 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'html');
 app.engine('html', swig.renderFile);
 
-app.use(express.static(path.join(__dirname, 'node_modules'))); 
+app.use(express.static(__dirname + '/node_modules/bootstrap')); 
+app.use(express.static(path.join(__dirname, 'node_modules', 'bootstrap', 'dist'))); 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(volleyball);
@@ -29,8 +30,7 @@ app.use(function(err, req, res, next) {
 app.get('/', function(req, res){
 		Promise.all([Hotel.findAll({}), Restaurant.findAll({}), Activity.findAll({})])	
 		.then( function(allData){
-			res.send('something'); 
-			// res.render('index', { Hotels: allData[0], Restaurants: allData[1], Activities: allData[2]  });
+			res.render('index', { Hotels: allData[0], Restaurants: allData[1], Activities: allData[2]  });
 		})
 })
 
