@@ -1,17 +1,36 @@
-<html>
-	<head>
-		<link rel='stylesheet' href='./css/bootstrap.min.css'/>
-	</head>
-	<body>
-	<div class='container'>
-	<select>
-		{% for hotel in Hotels %}
-			<option>{{hotel.name}}</option>
-		{% endfor %}
-	</select>
+{% extends './layout.html' %}
+
+{% block content %}
+
+<!-- Nav Bar  -->
+<div id='nav-bar'>
+</div>
+	
+
+
+<div class='float-left' id='map'>
+	<!-- Map -->
+	<div id='map'>
+	</div>
 </div>
 
-		<div class='container'>
+
+
+
+<div class='float-right'>
+
+	<!-- Activities -->
+	<div class='activities'>
+
+		<div class='container dropdown'>
+		<select>
+			{% for hotel in Hotels %}
+				<option>{{hotel.name}}</option>
+			{% endfor %}
+		</select>
+		</div>
+
+		<div class='container dropdown'>
 			<select>
 				{% for restaurant in Restaurants %}
 					<option> {{ restaurant.name }}</option>
@@ -19,12 +38,30 @@
 			</select>		
 		</div>
 
-		<div class='container'>
+		<div class='container dropdown'>
 			<select>
 				{% for activity in Activities%}
 					<option> {{activity.name }} </option>
 				{% endfor %}
 			</select>
 		</div>
-	</body>
-</html>
+
+	</div>
+
+	<!-- Day 2 -->
+	<div id='day-2'>
+	</div>
+
+		<!-- Days -->
+		<div id='days'>
+		</div>
+
+		<!-- Itinerary -->
+		<div id='itinerary'>
+		</div>
+
+</div>
+
+
+
+{% endblock %} 
